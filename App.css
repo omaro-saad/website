@@ -1,0 +1,111 @@
+:root {
+  --c1: #f63049;
+  --c2: #d02752;
+  --c3: #8a244b;
+  --c4: #111f35;
+  --ink: #f8f7ff;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  color: var(--ink);
+  background: radial-gradient(1200px 700px at 10% 0%, #2f3155, #0a1020 70%);
+}
+
+.cortex-app {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem 1rem 4rem;
+  position: relative;
+}
+
+.aurora {
+  position: fixed;
+  inset: -20%;
+  pointer-events: none;
+  background: conic-gradient(from 180deg, transparent, rgba(246, 48, 73, 0.12), rgba(208, 39, 82, 0.12), transparent 70%);
+  filter: blur(60px);
+  animation: drift 18s linear infinite;
+}
+
+.panel {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 18px;
+  background: linear-gradient(140deg, rgba(246, 48, 73, 0.2), rgba(17, 31, 53, 0.9));
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(9px);
+}
+
+.hero {
+  padding: 2rem;
+  text-align: center;
+}
+
+.hero h1 {
+  margin: 0.25rem 0;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  background: linear-gradient(130deg, var(--c1), var(--c2), #ff9ec0);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.tag { color: #ffc0d2; letter-spacing: 0.1em; text-transform: uppercase; }
+
+.section-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 1.2rem 0 2rem;
+}
+
+.section-card { padding: 1rem; border-left: 4px solid var(--c1); }
+.section-card h3 { margin-top: 0; }
+
+.timeline-heading h2 { margin-bottom: 0.35rem; }
+.stage-list {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.stage-card {
+  overflow: hidden;
+  animation: rise 800ms ease both;
+}
+
+.stage-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  filter: saturate(1.15);
+}
+
+.stage-body { padding: 1rem; }
+.stage-topline {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #ffb6cc;
+}
+
+.presenter {
+  color: #ffe0ea;
+  font-weight: 600;
+}
+
+.bucket h4 { margin-bottom: 0.3rem; color: #ffd2e0; }
+.bucket ul { margin-top: 0.3rem; padding-left: 1.1rem; }
+
+.reveal { animation: rise 700ms ease both; }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(20px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes drift {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
